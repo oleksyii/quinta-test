@@ -1,6 +1,4 @@
 requests==2.32.3
-# For Unix-like systems (Linux, macOS)
-curses; platform_system != "Windows"
 
 # For Windows
 windows-curses; platform_system == "Windows"
