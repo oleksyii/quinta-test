@@ -1,26 +1,20 @@
-import requests
 import curses
-from .api_key import API_KEY, BASE_URL, headers
+
+from .api_key import API_KEY, BASE_URL
+
+from http_client import HttpClient
+http_client = HttpClient(API_KEY, BASE_URL)
 
 def fetch_user():
     """Fetch user details and return the user ID."""
-    response = requests.get(f"{BASE_URL}/user", headers=headers)
-    if response.status_code == 200:
-        user_data = response.json()
-        return user_data["id"]
-    else:
-        print(f"Error fetching user: {response.status_code}, {response.json()}")
-        return None
+    response = http_client.get("/user")
+    return response["id"] if response else None
 
 
 def fetch_workspaces():
     """Fetch all workspaces and return a list of them."""
-    response = requests.get(f"{BASE_URL}/workspaces", headers=headers)
-    if response.status_code == 200:
-        return response.json()
-    else:
-        print(f"Error fetching workspaces: {response.status_code}, {response.json()}")
-        return []
+    response = http_client.get("/workspaces")
+    return response if response else []
 
 
 def choose_workspace(stdscr, workspaces):

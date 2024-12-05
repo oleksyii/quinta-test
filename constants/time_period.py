@@ -1,6 +1,6 @@
 from datetime import datetime, timedelta, timezone
 
-n_days = int(input("How many days from now would you like to see the report for: "))
+n_days = int(input("How many days from now would you like to see the data for: "))
 
 start_date = datetime.now() - timedelta(days=n_days)
 end_date = datetime.now()

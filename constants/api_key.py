@@ -1,5 +1,4 @@
 API_KEY = input("Enter your Clockify API key: ")
-# API_KEY = 'OThjMTU0NWMtOGM2OC00NjA0LWFiNDktNGRkN2M2YThmYjQ4'
 
 BASE_URL = "https://api.clockify.me/api/v1"
 
