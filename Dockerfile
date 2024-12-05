@@ -13,7 +13,6 @@ ENV APP_HOME=/app
 
 RUN apk update \
     && apk upgrade \
-    && apk add --no-cache libpq \
     && apk add bash
 
 # Встановимо робочу директорію всередині контейнера
@@ -22,4 +21,4 @@ WORKDIR $APP_HOME
 COPY . .
 COPY --from=build /usr/local/lib/python3.11/site-packages/ /usr/local/lib/python3.11/site-packages/
 
-CMD ["python3", "main.py"]
+CMD ["python3", "get_report.py"]
